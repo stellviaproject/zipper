@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"io"
 	"os"
-	"path"
 	"path/filepath"
 )
 
@@ -44,7 +43,6 @@ func ZipFolder(folder string) ([]byte, error) {
 		if err != nil {
 			return err
 		}
-		header.Name = path.Join(path.Base(folder), header.Name)
 		header.Method = zip.Deflate
 
 		// Creamos el archivo dentro del zip
